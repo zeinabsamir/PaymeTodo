@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
-   MatButtonModule, MatCardModule, MatInputModule, MatToolbarModule
+   MatButtonModule, MatCardModule, MatInputModule, MatToolbarModule, MatListModule,
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -32,6 +32,7 @@ import { TokenInterceptorService } from './token-interceptor.service';
     MatButtonModule,
     MatCardModule,
     MatInputModule,
+    MatListModule,
    MatToolbarModule
   ],
   providers: [AuthGuard,

@@ -1,3 +1,10 @@
-<p>
-  todos-list works!
-</p>
+<mat-selection-list #todoList  *ngIf="todos.length > 0">
+  <mat-list-option *ngFor="let todo of todos">
+    {{todo?.content}}
+  </mat-list-option>
+</mat-selection-list>
+<!--
+<p *ngIf="todos.length > 0">
+  Options selected: {{todoList.selectedOptions.selected.length}}
+</p> -->
+<p class="info-text mat-body-1" *ngIf="todos.length == 0">No todos added</p>

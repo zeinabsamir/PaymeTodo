@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+
+import { TodoService } from '../todo.service';
 
 @Component({
   selector: 'app-todos-list',
@@ -7,9 +10,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodosListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private todoService: TodoService) { }
 
+  todos: any[] = [];
+  todoSub: Subscription;
   ngOnInit() {
+     this.getAllTodos();
   }
+
+  getAllTodos() {
+    this.todoService.getAllTodos();
+    this.todoSub = this.todoService.getTodosUpdatedListener()
+      .subscribe((todos: any[]) => {
+        this.todos = todos;
+        console.log(todos);
+      });
+  }
+
+
+  ngOnDestroy() {
+
+   // this.todoSub.unsubscribe();
+  }
+
 
 }

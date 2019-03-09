@@ -1,3 +1,18 @@
-<p>
-  todos-create works!
-</p>
+
+<mat-card>
+  <form (submit)="onAddTodo(todoForm)" #todoForm="ngForm">
+    <mat-form-field>
+      <input matInput
+       type="text"
+       name="content"
+       ngModel
+       required
+       placeholder="what should i do"
+       #content="ngModel" >
+       <mat-error *ngIf="content.invalid">Please enter a content</mat-error>
+      </mat-form-field>
+    <button mat-raised-button
+      color="primary"
+      type="submit" >Create</button>
+  </form>
+</mat-card>

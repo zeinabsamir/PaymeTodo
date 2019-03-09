@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 import { AuthService } from '../auth.service';
 
@@ -11,7 +12,7 @@ import { AuthService } from '../auth.service';
 })
 export class LoginComponent implements OnInit {
 
-
+ errorMessage: string;
   constructor(private authService: AuthService,
               private _route: Router ) { }
 
@@ -29,7 +30,13 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('token', res.token);
         this._route.navigate(['/todos'])
         },
-      err => console.log(err)
+      err => {
+        if(err instanceof HttpErrorResponse) {
+           if(err.status === 401) {
+             this.errorMessage = err.error;
+           }
+        }
+      }
     );
   }
 }

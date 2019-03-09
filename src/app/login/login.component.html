@@ -30,6 +30,7 @@
           required
         />
       </mat-form-field>
+       <mat-error *ngIf="errorMessage">{{errorMessage}}</mat-error>
       <mat-card-actions>
         <button type="submit" mat-raised-button color="primary">Login</button>
       </mat-card-actions>
