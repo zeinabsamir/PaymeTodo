@@ -10,12 +10,16 @@ import {
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
+import { TodosListComponent } from './todos/todos-list/todos-list.component';
+import { TodosCreateComponent } from './todos/todos-create/todos-create.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    TodosListComponent,
+    TodosCreateComponent
   ],
   imports: [
     BrowserModule,
