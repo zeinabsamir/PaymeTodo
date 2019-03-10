@@ -10,7 +10,7 @@ import { environment } from "../environments/environment";
 })
 export class AuthService {
 
- private BACKEND_URL = environment.apiUrl + '/login';
+ private BACKEND_URL = environment.apiUrl + 'users/login';
 // private _loginUrl = 'http://localhost:3000/users/login';
 
   constructor(private http: HttpClient, private _route: Router) { }

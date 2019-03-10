@@ -17,7 +17,7 @@ export class TodoService {
   constructor(private http: HttpClient) {}
 
   getAllTodos() {
-    this.http.get<any>(this.BACKEND_URL + '/listTodos')
+    this.http.get<any>(this.BACKEND_URL + 'todos')
     .subscribe(data => {
       this.todos = data;
       this.todosUpdated.next([...this.todos]);
@@ -28,7 +28,7 @@ export class TodoService {
     return this.todosUpdated.asObservable();
   }
   createTodo(todo) {
-    this.http.post<any>(this.BACKEND_URL + '/addTodo', todo)
+    this.http.post<any>(this.BACKEND_URL + 'todos', todo)
     .subscribe(a => {
       this.todos.push(a);
       this.todosUpdated.next([...this.todos]);
